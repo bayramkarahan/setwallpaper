@@ -1,0 +1,7 @@
+#bayram KARAHAN bayramk@gmail.com
+
+[Desktop Entry]
+Exec=sh -c "/usr/bin/setwallpaper.sh"
+Type=Application
+Name[tr_TR.UTF-8]=setwallpaper.desktop
+Name[tr_TR]=setwallpaper.desktop

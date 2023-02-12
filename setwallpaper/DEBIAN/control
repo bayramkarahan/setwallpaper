@@ -1,0 +1,11 @@
+Package: setwallpaper
+Version: 1.0
+Architecture: all
+Depends: 
+Pre-Depends:
+Recommends: 
+Maintainer: Bayram Karahan [bayramk@gmail.com]
+Conflicts: 
+Replaces: 
+Provides: setwallpaper
+Description: setwallpaper eklentisi
