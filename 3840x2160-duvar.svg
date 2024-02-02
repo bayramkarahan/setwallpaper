@@ -8,19 +8,43 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   sodipodi:docname="3840x2160-duvar1.svg"
+   sodipodi:docname="3840x2160-duvar.svg"
    inkscape:export-filename="C:\Users\xine\Documents\2018-debian-buster\futurePrototype\futurePrototype-wallpaper-02-4096x2160.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
-     id="defs2" />
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient873">
+      <stop
+         style="stop-color:#0c1830;stop-opacity:1"
+         offset="0"
+         id="stop869" />
+      <stop
+         style="stop-color:#5f7794;stop-opacity:1"
+         offset="1"
+         id="stop871" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient873"
+       id="linearGradient875"
+       x1="535.66125"
+       y1="-265.37906"
+       x2="535.66125"
+       y2="297.17203"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.93890672,0,0,1,33.104315,274.50004)" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -30,7 +54,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.15185547"
      inkscape:cx="2001.9035"
-     inkscape:cy="905.46623"
+     inkscape:cy="905.46621"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -86,7 +110,7 @@
        height="571.5"
        width="1017.5245"
        id="rect1009"
-       style="display:inline;opacity:1;fill:#181818;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.76436;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;enable-background:new"
+       style="display:inline;opacity:1;fill:url(#linearGradient875);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.76436;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;enable-background:new"
        inkscape:export-filename="C:\Users\xine\Documents\2018-debian-buster\futurePrototype-source\desktop-wallpaper\png\wallpaper-4096x2160.png" />
   </g>
   <g
@@ -99,7 +123,7 @@
        id="g197"
        inkscape:highlight-color="#c3e33e"
        style="opacity:0.354128"
-       transform="matrix(0.93890675,0,0,0.99999999,30.25865,-6.4529406)">
+       transform="matrix(0.93890675,0,0,0.99695128,29.852842,-6.0479073)">
       <path
          inkscape:connector-curvature="0"
          id="rect6945"
