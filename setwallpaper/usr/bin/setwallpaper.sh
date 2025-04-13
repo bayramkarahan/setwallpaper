@@ -1,6 +1,8 @@
 #!/bin/bash
 wallpaperstatus="$HOME/.config/wp"
-feh --bg-tile /usr/share/images/duvar.svg
+gsettings set org.gnome.desktop.background picture-uri file:///usr/share/images/duvar.sv
+gsettings set org.gnome.desktop.background picture-uri file:///usr/share/images/duvar.svg
+
 exit 0
 if [ -f $wallpaperstatus ]; then
 	echo "dosya var"
