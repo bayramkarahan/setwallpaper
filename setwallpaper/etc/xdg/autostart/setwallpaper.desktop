@@ -1,7 +1,8 @@
 #bayram KARAHAN bayramk@gmail.com
-
 [Desktop Entry]
-Exec=sh -c 'sleep 1&&/usr/bin/setwallpaper.sh'
 Type=Application
-Name[tr_TR.UTF-8]=setwallpaper.desktop
-Name[tr_TR]=setwallpaper.desktop
+Name=Set Wallpaper
+Exec=/usr/bin/setwallpaper.sh
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=5
+
