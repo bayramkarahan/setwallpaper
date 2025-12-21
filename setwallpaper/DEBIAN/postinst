@@ -1,2 +1,32 @@
-#!/bin/sh
+#!/bin/bash
+# Script: Kilitle (SVG için)
+# Kullanım: sudo ./lock-desktop.sh
 
+# Klasörleri oluştur
+sudo mkdir -p /etc/dconf/db/local.d
+sudo mkdir -p /etc/dconf/db/local.d/locks
+sudo mkdir -p /etc/dconf/profile
+
+# Varsayılan arka plan ayarı
+sudo tee /etc/dconf/db/local.d/desktop-background > /dev/null <<EOL
+[org/cinnamon/desktop/background]
+picture-uri='file:///usr/share/images/duvar.svg'
+picture-options='zoom'
+EOL
+
+# Kilit dosyası
+sudo tee /etc/dconf/db/local.d/locks/desktop-background-lock > /dev/null <<EOL
+/org/cinnamon/desktop/background/picture-uri
+/org/cinnamon/desktop/background/picture-options
+EOL
+
+# Profil dosyası
+sudo tee /etc/dconf/profile/user > /dev/null <<EOL
+user-db:user
+system-db:local
+EOL
+
+# Dconf veritabanını güncelle
+sudo dconf update
+
+echo "✅ Masaüstü arka plan kilitlendi (SVG). Oturumu yeniden açın veya cinnamon --replace & çalıştırın."
