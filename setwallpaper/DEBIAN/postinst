@@ -1,32 +1,65 @@
 #!/bin/bash
-# Script: Kilitle (SVG için)
-# Kullanım: sudo ./lock-desktop.sh
+# postinst - dpkg safe
 
-# Klasörleri oluştur
-sudo mkdir -p /etc/dconf/db/local.d
-sudo mkdir -p /etc/dconf/db/local.d/locks
-sudo mkdir -p /etc/dconf/profile
+set -u   # set -e YOK!
 
-# Varsayılan arka plan ayarı
-sudo tee /etc/dconf/db/local.d/desktop-background > /dev/null <<EOL
+BG_URI="file:///usr/share/images/duvar.svg"
+
+mkdir -p /etc/dconf/db/local.d
+mkdir -p /etc/dconf/db/local.d/locks
+mkdir -p /etc/dconf/profile
+
+DESKTOP=""
+
+if command -v cinnamon-session >/dev/null 2>&1; then
+    DESKTOP="cinnamon"
+elif command -v gnome-shell >/dev/null 2>&1; then
+    DESKTOP="gnome"
+fi
+
+echo "🔍 Masaüstü tespiti: ${DESKTOP:-bulunamadı}"
+
+if [ "$DESKTOP" = "cinnamon" ]; then
+
+    tee /etc/dconf/db/local.d/desktop-background > /dev/null <<EOL
 [org/cinnamon/desktop/background]
-picture-uri='file:///usr/share/images/duvar.svg'
+picture-uri='$BG_URI'
 picture-options='zoom'
 EOL
 
-# Kilit dosyası
-sudo tee /etc/dconf/db/local.d/locks/desktop-background-lock > /dev/null <<EOL
+    tee /etc/dconf/db/local.d/locks/desktop-background-lock > /dev/null <<EOL
 /org/cinnamon/desktop/background/picture-uri
 /org/cinnamon/desktop/background/picture-options
 EOL
 
-# Profil dosyası
-sudo tee /etc/dconf/profile/user > /dev/null <<EOL
+elif [ "$DESKTOP" = "gnome" ]; then
+
+    tee /etc/dconf/db/local.d/desktop-background > /dev/null <<EOL
+[org/gnome/desktop/background]
+picture-uri='$BG_URI'
+picture-options='zoom'
+
+[org/gnome/desktop/lockdown]
+disable-background=true
+EOL
+
+    tee /etc/dconf/db/local.d/locks/desktop-background-lock > /dev/null <<EOL
+/org/gnome/desktop/background/picture-uri
+/org/gnome/desktop/background/picture-options
+/org/gnome/desktop/lockdown/disable-background
+EOL
+
+else
+    echo "⚠️ Cinnamon veya GNOME bulunamadı, atlanıyor"
+    exit 0   # ⬅⬅⬅ KRİTİK
+fi
+
+tee /etc/dconf/profile/user > /dev/null <<EOL
 user-db:user
 system-db:local
 EOL
 
-# Dconf veritabanını güncelle
-sudo dconf update
+dconf update
 
-echo "✅ Masaüstü arka plan kilitlendi (SVG). Oturumu yeniden açın veya cinnamon --replace & çalıştırın."
+exit 0
+

@@ -1,24 +1,15 @@
 #!/bin/bash
+# postrm - dpkg safe
 
-# Script: Kilidi kaldır ve tüm oluşturulan yapıyı temizle
-# Kullanım: sudo ./unlock-desktop.sh
+rm -f /etc/dconf/db/local.d/locks/desktop-background-lock
+rm -f /etc/dconf/db/local.d/desktop-background
+rm -f /etc/dconf/profile/user
 
-# Kilit dosyalarını sil
-sudo rm -f /etc/dconf/db/local.d/locks/desktop-background-lock
+dconf update
 
-# Varsayılan arka plan dosyasını sil
-sudo rm -f /etc/dconf/db/local.d/desktop-background
+rmdir --ignore-fail-on-non-empty /etc/dconf/db/local.d/locks || true
+rmdir --ignore-fail-on-non-empty /etc/dconf/db/local.d || true
+rmdir --ignore-fail-on-non-empty /etc/dconf/profile || true
 
-# Profil dosyasını sil (sadece eğer başka sistem-db:local yoksa)
-sudo rm -f /etc/dconf/profile/user
-
-# Dconf veritabanını güncelle
-sudo dconf update
-
-# Boş klasörleri kaldır (opsiyonel)
-sudo rmdir --ignore-fail-on-non-empty /etc/dconf/db/local.d/locks
-sudo rmdir --ignore-fail-on-non-empty /etc/dconf/db/local.d
-sudo rmdir --ignore-fail-on-non-empty /etc/dconf/profile
-
-echo "✅ Masaüstü arka plan kilidi kaldırıldı ve tüm yapı temizlendi. Oturumu yeniden açın veya cinnamon --replace & çalıştırın."
+exit 0
 
