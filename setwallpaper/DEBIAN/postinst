@@ -23,7 +23,7 @@ if [ "$DESKTOP" = "cinnamon" ]; then
 
     tee /etc/dconf/db/local.d/desktop-background > /dev/null <<EOL
 [org/cinnamon/desktop/background]
-picture-uri='$BG_URI'
+#picture-uri='$BG_URI'
 picture-options='zoom'
 EOL
 
@@ -36,7 +36,7 @@ elif [ "$DESKTOP" = "gnome" ]; then
 
     tee /etc/dconf/db/local.d/desktop-background > /dev/null <<EOL
 [org/gnome/desktop/background]
-picture-uri='$BG_URI'
+#picture-uri='$BG_URI'
 picture-options='zoom'
 
 [org/gnome/desktop/lockdown]
